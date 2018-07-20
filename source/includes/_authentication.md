@@ -45,13 +45,13 @@ Use this API to generate an access token that can be used for authentication in 
 
 ### Body Parameters
 
-| Parameter   | Required  | Default   | Description   |
-|---------------  |---------- |---------  |------------------------------------------------------------ |
-| client_id   | True  | -   | Client Identifier   |
-| client_secret   | True  | -   | Client Secret   |
-| grant_type  | True  | -   | "password" is the grant_type that should be sent initially  |
-| username  | True  | -   | Username  |
-| password  | True  | -   | Password  |
+| Parameter   | Required  | Description   |
+|---------------  |---------- |------------------------------------------------------------ |
+| client_id   | True  | Client Identifier   |
+| client_secret   | True  | Client Secret   |
+| grant_type  | True  | "password" is the grant_type that should be sent initially  |
+| username  | True  | Username  |
+| password  | True  | Password  |
 
 ### How to get the credentials
 They can be found by signing up on SquadRun's [Client Dashboard](https://dashboard/link/itegration).
@@ -90,8 +90,8 @@ Use this API endpoint to revoke an active oauth token.
 
 ### Body Parameters
 
-| Parameter   | Required  | Default   | Description   |
-|---------------  |---------- |---------  |------------------------------------------------------------ |
-| client_id   | True  | -   | Client Identifier   |
-| client_secret   | True  | -   | Client Secret   |
-| token  | True  | -   | Auth token generated previously that needs to be invalidated  |
+| Parameter   | Required  | Description   |
+|---------------  |---------- |-------------------------------------------------------------- |
+| client_id   | True  | Client Identifier   |
+| client_secret   | True  | Client Secret   |
+| token   | True  | Auth token generated previously that needs to be invalidated  |

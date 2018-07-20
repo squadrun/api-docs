@@ -8,7 +8,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
 includes:
   - introduction
   - authentication
-  - leads
+  - leads_IN
+  - response_formats
+  - errors
 
 search: true
 ---
