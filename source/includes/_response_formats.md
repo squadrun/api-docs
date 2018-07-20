@@ -9,14 +9,6 @@ Following are the different formats for each outreach type.
 ```json
 "call_attempt_{campaign_name}_1": [
     {
-        "reference_id": "ABCG23",
-        "outcome_id": 20,
-        "outcome_name": "Not Connected",
-        "call_duration": null,
-        "called_at": 1531241587351,
-        "report_keys_order": [],
-    },
-    {
         "reference_id": "H8Y4RMP1",
         "outcome_id": 21,
         "outcome_name": "Wrong Number",
@@ -64,6 +56,7 @@ Since for each lead and script, we might make multiple attempts, we append each 
 <strong>last_call_attempt_{campaign_name}_1</strong><br>
 Also, to make it easy to consume without writing code, we send out the answers for the last call attempt that was made for that script also separately under this header.
 
+
 ### Response Format
 
 | Key   | Description   |
@@ -74,7 +67,7 @@ Also, to make it easy to consume without writing code, we send out the answers f
 | call_duration  | Duration of the Call   |
 | called_at   | Epoch timestamp at which the call was made   |
 | report_keys_order   | List of keys in order of which they were asked by the Lead  |
-| question_1  | answer 1...   |
+| question_1  | answer 1 |
 
 
 ## Gmail
