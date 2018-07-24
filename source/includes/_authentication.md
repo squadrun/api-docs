@@ -54,6 +54,6 @@ Use this API to generate an access token that can be used for authentication in 
 | password  | True  | Password  |
 
 ### How to get the credentials
-They can be found by signing up on SquadRun's [Client Dashboard](https://dashboard/link/itegration).
+They can be found by signing up on SquadRun's [Client Dashboard](https://app.squadvoice.co/voice/dashboard/campaigns/).
 
-`client_id` and `client_secret` can be found on the [API Integration Page](https://dashboard/link/itegration) on the dashboard.
+`client_id` and `client_secret` can be found on the [API Integration Page](https://app.squadvoice.co/voice/dashboard/integrations/) on the dashboard.
