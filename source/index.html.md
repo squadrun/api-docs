@@ -16,5 +16,5 @@ search: true
 ---
 
 <script>
-  window.location.href = "v1/us.html";
+  window.location = "v1/us.html";
 </script>
