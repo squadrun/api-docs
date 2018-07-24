@@ -39,10 +39,10 @@ Use this API to create a new Lead in your Squadvoice Campaign.
 
 ### Headers
 
-| Parameter   | Required  | Description   |
-|---------------  |---------- |-------------------- |
-| Content-Type  | True  | "application/json"  |
-| Authorization   | True  | "Bearer {access_token}"  |
+| Parameter 	| Value 	|
+|---------------	|-------------------------	|
+| Content-Type 	| "application/json" 	|
+| Authorization 	| "Bearer {access_token}" 	|
 
 ### Path Parameters
 
@@ -126,10 +126,10 @@ Use this API to get information about a Lead/Leads.
 
 ### Headers
 
-| Parameter   | Required  | Description   |
-|---------------  |---------- |-------------------- |
-| Content-Type  | True  | "application/json"  |
-| Authorization   | True  | "Bearer {access_token}"  |
+| Parameter 	| Value 	|
+|---------------	|-------------------------	|
+| Content-Type 	| "application/json" 	|
+| Authorization 	| "Bearer {access_token}" 	|
 
 ### Path Parameters
 

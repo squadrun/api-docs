@@ -5,5 +5,3 @@ Welcome to Squadvoice API! [SquadVoice](https://www.squadvoice.co/) provides bus
 <aside class="notice">
 	If you are a business based in India, use our <a href="v1/in.html">India specific API</a>.
 </aside>
-
-The API is organized around REST. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.

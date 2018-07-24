@@ -57,3 +57,9 @@ Use this API to generate an access token that can be used for authentication in 
 They can be found by signing up on SquadRun's [Client Dashboard](https://app.squadvoice.co/voice/dashboard/campaigns/).
 
 `client_id` and `client_secret` can be found on the [API Integration Page](https://app.squadvoice.co/voice/dashboard/integrations/) on the dashboard.
+
+
+
+<aside class="notice">
+  <code>/oauth/token/</code> endpoint accepts data as a POST form and not a json dump unlike rest of the APIs below
+</aside>
