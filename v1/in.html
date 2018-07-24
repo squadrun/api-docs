@@ -220,7 +220,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
@@ -228,16 +228,13 @@
                   <li>
                     <a href="#get-access-token" class="toc-h2 toc-link" data-title="Get Access Token">Get Access Token</a>
                   </li>
-                  <li>
-                    <a href="#revoke-access-token" class="toc-h2 toc-link" data-title="Revoke Access Token">Revoke Access Token</a>
-                  </li>
               </ul>
           </li>
           <li>
             <a href="#leads" class="toc-h1 toc-link" data-title="Leads">Leads</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#add-a-lead-to-a-campaign" class="toc-h2 toc-link" data-title="Add a lead to a Campaign">Add a lead to a Campaign</a>
+                    <a href="#create-a-lead" class="toc-h2 toc-link" data-title="Create a Lead">Create a Lead</a>
                   </li>
                   <li>
                     <a href="#get-leads" class="toc-h2 toc-link" data-title="Get Leads">Get Leads</a>
@@ -269,10 +266,10 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Squad Voice is the sexy you need in your life right now! We do other things that I will write here once our PMs tell me what to write. Thenks.</p>
+        <h1 id='getting-started'>Getting Started</h1>
+<p>Welcome to Squadvoice API! <a href="https://www.squadvoice.co/">SquadVoice</a> provides businesses with an omni-channel outreach engine + distributed team of expert calling reps. Our platform qualifies your Leads faster and provides more sales opportunities. You can use this API to access our API endpoints such as Leads API to add Leads to your campaigns or Response API to know status of your Leads. </p>
 
-<p>Here is our website: <a href="https://www.squadvoice.co/">SquadVoice</a>.</p>
+<p>The API is organized around REST. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.</p>
 <h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/oauth/token/"</span>
@@ -343,50 +340,7 @@
 <p>They can be found by signing up on SquadRun&#39;s <a href="https://dashboard/link/itegration">Client Dashboard</a>.</p>
 
 <p><code>client_id</code> and <code>client_secret</code> can be found on the <a href="https://dashboard/link/itegration">API Integration Page</a> on the dashboard.</p>
-<h2 id='revoke-access-token'>Revoke Access Token</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/oauth/token/"</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s">"client_id"</span><span class="p">:</span> <span class="s">"test_client_id"</span><span class="p">,</span> 
-  <span class="s">"client_secret"</span><span class="p">:</span> <span class="s">"test_client_secret"</span><span class="p">,</span> 
-  <span class="s">"token  "</span><span class="p">:</span> <span class="s">"YOUR_TOKEN"</span>
-<span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span>
-<span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="se">\</span>
-<span class="s2">"token=YOUR_TOKEN&amp;client_id=test_client_id
-&amp;client_secret=test_client_secret"</span> <span class="se">\</span>
-https://app.squadrun.co/oauth/revoke_token/
-</code></pre>
-<p>Use this API endpoint to revoke an active oauth token.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST https://app.squadrun.co/oauth/token/</code></p>
-<h3 id='body-parameters-2'>Body Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client_id</td>
-<td>True</td>
-<td>Client Identifier</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>True</td>
-<td>Client Secret</td>
-</tr>
-<tr>
-<td>token</td>
-<td>True</td>
-<td>Auth token generated previously that needs to be invalidated</td>
-</tr>
-</tbody></table>
-<h1 id='leads'>Leads</h1><h2 id='add-a-lead-to-a-campaign'>Add a lead to a Campaign</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h1 id='leads'>Leads</h1><h2 id='create-a-lead'>Create a Lead</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v1/leads/create/{campaign_id}/"</span>
@@ -410,7 +364,7 @@ https://app.squadrun.co/oauth/revoke_token/
 --data-binary <span class="s1">$'{"lead_id": 1, "phone_number": "{valid phone number}", \
 "contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'</span>
 </code></pre>
-<p>Use this API to add a new lead to a campaign.</p>
+<p>Use this API to create a new Lead in your Squadvoice Campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v1/leads/create/{campaign_id}/&quot;</code></p>
 <h3 id='headers'>Headers</h3>
@@ -429,7 +383,7 @@ https://app.squadrun.co/oauth/revoke_token/
 <tr>
 <td>Authorization</td>
 <td>True</td>
-<td>&quot;Bearer {token}&quot;</td>
+<td>&quot;Bearer {access_token}&quot;</td>
 </tr>
 </tbody></table>
 <h3 id='path-parameters'>Path Parameters</h3>
@@ -457,17 +411,17 @@ https://app.squadrun.co/oauth/revoke_token/
 <tr>
 <td>lead_id</td>
 <td>True</td>
-<td>Unique Identifier for the Lead</td>
+<td>Unique Identifier of the Lead</td>
 </tr>
 <tr>
 <td>phone_number</td>
 <td>True</td>
-<td>Valid phone number of the lead</td>
+<td>Valid phone number of the Lead</td>
 </tr>
 <tr>
 <td>contact_name</td>
 <td>True</td>
-<td>Name of the lead being contacted</td>
+<td>Name of the Lead being contacted</td>
 </tr>
 <tr>
 <td>custom_field</td>
@@ -480,7 +434,7 @@ https://app.squadrun.co/oauth/revoke_token/
   <b>Data Security</b>
   <p>
     Goes without saying your data is secure with us. :)<br>
-    We call our reps via a masked number. This way the <code>phone_number</code> you share with us is never shared with our reps.
+    We protect your Lead’s phone number by masking them. This way the <code>phone_number</code> you share with us is never shared with our reps.
   </p>
 </aside>
 <h2 id='get-leads'>Get Leads</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -491,7 +445,7 @@ https://app.squadrun.co/oauth/revoke_token/
 
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"min_called_at"</span><span class="p">:</span> <span class="mi">1479973282000</span><span class="p">,</span> 
-    <span class="s">"task_id"</span><span class="p">:</span> <span class="mi">8</span>
+    <span class="s">"lead_id"</span><span class="p">:</span> <span class="mi">8</span>
 <span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -523,7 +477,7 @@ https://app.squadrun.co/oauth/revoke_token/
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Use this API endpoint to fetch leads.</p>
+<p>Use this API to get information about a Lead/Leads.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://app.squadrun.co/api/v1/leads/responses/{campaign_id}/</code></p>
 <h3 id='headers-2'>Headers</h3>
@@ -542,7 +496,7 @@ https://app.squadrun.co/oauth/revoke_token/
 <tr>
 <td>Authorization</td>
 <td>True</td>
-<td>&quot;Bearer {token}&quot;</td>
+<td>&quot;Bearer {access_token}&quot;</td>
 </tr>
 </tbody></table>
 <h3 id='path-parameters-2'>Path Parameters</h3>
@@ -572,19 +526,19 @@ https://app.squadrun.co/oauth/revoke_token/
 <td>lead_id</td>
 <td>False</td>
 <td>-</td>
-<td>ID of the lead that you might want to fetch</td>
+<td>Unique Identifier of the Lead</td>
 </tr>
 <tr>
-<td>min_judged_at</td>
+<td>processed_after</td>
 <td>False</td>
 <td>-</td>
-<td>Minimum time in Epoch to fetch responses since</td>
+<td>Epoch timestamp</td>
 </tr>
 <tr>
-<td>max_judged_at</td>
+<td>processed_before</td>
 <td>False</td>
 <td>-</td>
-<td>Maximum time in Epoch to fetch responses since</td>
+<td>Epoch timestamp</td>
 </tr>
 <tr>
 <td>page</td>
@@ -600,7 +554,7 @@ https://app.squadrun.co/oauth/revoke_token/
 </tr>
 </tbody></table>
 <h3 id='response-structure'>Response Structure</h3>
-<p>The response you will get is a combination of some fixed keys and some dynamic keys based on the custom fields that you sent while creating the Lead, the stage at which the lead is and how you have set up your campaign.</p>
+<p>The response you will get is a combination of some fixed keys and some dynamic keys based on the custom fields that you sent while creating the Lead, the stage at which the Lead is and how you have set up your campaign.</p>
 
 <p><strong>Fixed Keys</strong></p>
 
@@ -612,11 +566,11 @@ https://app.squadrun.co/oauth/revoke_token/
 </thead><tbody>
 <tr>
 <td>lead_id</td>
-<td>Unique Identifier for the Lead</td>
+<td>Unique Identifier of the Lead</td>
 </tr>
 <tr>
 <td>phone_number</td>
-<td>Phone number of the lead</td>
+<td>Phone number of the Lead</td>
 </tr>
 <tr>
 <td>contact_name</td>
@@ -624,7 +578,7 @@ https://app.squadrun.co/oauth/revoke_token/
 </tr>
 <tr>
 <td>created_at</td>
-<td>False</td>
+<td>Epoch timestamp</td>
 </tr>
 <tr>
 <td>campaign_id</td>
@@ -636,11 +590,7 @@ https://app.squadrun.co/oauth/revoke_token/
 </tr>
 <tr>
 <td>country_code</td>
-<td>IN/US</td>
-</tr>
-<tr>
-<td>state_code</td>
-<td>None/US State Code</td>
+<td>Country Code</td>
 </tr>
 <tr>
 <td>call_attempt_keys</td>
@@ -665,12 +615,12 @@ https://app.squadrun.co/oauth/revoke_token/
 </tr>
 </thead><tbody>
 <tr>
-<td>judged_at</td>
-<td>Unique Identifier for the Lead</td>
+<td>processed_at</td>
+<td>Epoch timestamp for when the Lead was processed</td>
 </tr>
 <tr>
 <td>outcome_name</td>
-<td>Phone number of the lead</td>
+<td>Phone number of the Lead</td>
 </tr>
 <tr>
 <td>outcome_id</td>
@@ -686,7 +636,14 @@ https://app.squadrun.co/oauth/revoke_token/
   </p>
 </aside>
 <h1 id='response-formats'>Response Formats</h1>
-<p>SquadVoice&#39;s extensive API response sends each and every data point related to your campaign. That means, if an Email was sent out to the lead, the API response will contain the information about the Email sent as well.</p>
+<p>SquadVoice&#39;s extensive API response sends each and every data point related to your campaign. That means, if an Email was sent out to the Lead, the API response will contain the information about the Email sent as well.</p>
+
+<p>Some variables used in the <code>keys</code> are:</p>
+
+<ol>
+<li><strong>campaign_name</strong>: This is the name you set while creating the Campaign.</li>
+<li><strong>block_name</strong>: This is the name of the block you define in your sequence.</li>
+</ol>
 
 <p>Following are the different formats for each outreach type.</p>
 <h2 id='call-attempt'>Call Attempt</h2><pre class="highlight json tab-json"><code><span class="s2">"call_attempt_{campaign_name}_1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -726,13 +683,14 @@ https://app.squadrun.co/oauth/revoke_token/
     </span><span class="s2">"question_n"</span><span class="p">:</span><span class="w"> </span><span class="s2">"answer n"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>A Call Attempt is made when you add a script etc. to the Campaign. </p>
+<p>A Call Attempt is made when you add a script etc. to the Campaign.</p>
 
-<p><strong>call_attempt_{campaign_name}_1</strong><br>
-Since for each lead and script, we might make multiple attempts, we append each attempt for the same script to a list.</p>
+<p>It adds the following <code>keys</code> to the <code>json</code> response:</p>
 
-<p><strong>last_call_attempt_{campaign_name}_1</strong><br>
-Also, to make it easy to consume without writing code, we send out the answers for the last call attempt that was made for that script also separately under this header.</p>
+<ol>
+<li><strong>call_attempt_{campaign_name}_1</strong>: Since for each Lead, we might make multiple attempts, we add each attempt to a list.</li>
+<li><strong>last_call_attempt_{campaign_name}_1</strong>: Also, to make it easy to consume without writing code, we send out the answers for the last call attempt that was made for that lead also separately in this key.</li>
+</ol>
 <h3 id='response-format'>Response Format</h3>
 <table><thead>
 <tr>
@@ -742,7 +700,7 @@ Also, to make it easy to consume without writing code, we send out the answers f
 </thead><tbody>
 <tr>
 <td>reference_id</td>
-<td>Unique Identifier for the Call Attempt</td>
+<td>Unique Identifier of the Call Attempt</td>
 </tr>
 <tr>
 <td>outcome_id</td>
@@ -750,7 +708,7 @@ Also, to make it easy to consume without writing code, we send out the answers f
 </tr>
 <tr>
 <td>outcome_name</td>
-<td>Human readable name of the outcome</td>
+<td>Name of the outcome</td>
 </tr>
 <tr>
 <td>call_duration</td>
@@ -758,7 +716,7 @@ Also, to make it easy to consume without writing code, we send out the answers f
 </tr>
 <tr>
 <td>called_at</td>
-<td>Epoch timestamp at which the call was made</td>
+<td>Epoch timestamp</td>
 </tr>
 <tr>
 <td>report_keys_order</td>
@@ -766,7 +724,7 @@ Also, to make it easy to consume without writing code, we send out the answers f
 </tr>
 <tr>
 <td>question_1</td>
-<td>answer 1</td>
+<td>answer 1 (these are based on the script that you created)</td>
 </tr>
 </tbody></table>
 <h2 id='gmail'>Gmail</h2><pre class="highlight json tab-json"><code><span class="s2">"gmail_{block_name}"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -778,8 +736,11 @@ Also, to make it easy to consume without writing code, we send out the answers f
     </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1531241588351</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>gmail_{block_name}</strong><br>
-Key under which the data for this type is stored.</p>
+<p>It adds the following <code>keys</code> to the <code>json</code> response:</p>
+
+<ol>
+<li><strong>gmail_{block_name}</strong></li>
+</ol>
 <h3 id='response-format-2'>Response Format</h3>
 <table><thead>
 <tr>
@@ -822,8 +783,11 @@ Key under which the data for this type is stored.</p>
     </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1531241588351</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>ivr_{block_name}</strong><br>
-Key under which the data for this type is stored.</p>
+<p>It adds the following <code>keys</code> to the <code>json</code> response:</p>
+
+<ol>
+<li><strong>ivr_{block_name}</strong></li>
+</ol>
 <h3 id='response-format-3'>Response Format</h3>
 <table><thead>
 <tr>
@@ -849,7 +813,7 @@ Key under which the data for this type is stored.</p>
 </tr>
 <tr>
 <td>dtmf_response</td>
-<td>Response by the lead, if any</td>
+<td>Response by the Lead, if any</td>
 </tr>
 <tr>
 <td>duration</td>
@@ -867,8 +831,11 @@ Key under which the data for this type is stored.</p>
     </span><span class="s2">"sent_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1531241588351</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>ivr_{block_name}</strong><br>
-Key under which the data for this type is stored.</p>
+<p>It adds the following <code>keys</code> to the <code>json</code> response:</p>
+
+<ol>
+<li><strong>sms_{block_name}</strong></li>
+</ol>
 <h3 id='response-format-4'>Response Format</h3>
 <table><thead>
 <tr>
