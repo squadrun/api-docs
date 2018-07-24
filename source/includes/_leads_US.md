@@ -57,6 +57,8 @@ Use this API to create a new Lead in your Squadvoice Campaign.
 | lead_id   | True  | Unique Identifier of the Lead  |
 | phone_number  | True  | Valid phone number of the Lead  |
 | contact_name  | True  | Name of the Lead being contacted  |
+| state_code    | True  | Two letter State Code          |
+| ebr_datetime  | False | EBR Datetime for the Lead      |
 | custom_field  | True  | Any key value pair other than this  |
 
 <aside class="success">
@@ -160,6 +162,7 @@ The response you will get is a combination of some fixed keys and some dynamic k
 | campaign_id   | Campaign ID which you sent in the URL too   |
 | campaign_name   | Name of the Campaign  |
 | country_code  | Country Code   |
+| state_code  | Two letter State Code  |
 | call_attempt_keys   | List of keys that contain the answers of Call Attempts  |
 | last_call_attempt_keys  | List of keys that contain the answer of the last call attempt   |
 | total_cost | Cost of processing the Lead |

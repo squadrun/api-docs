@@ -1,6 +1,12 @@
 # Response Formats
 
-SquadVoice's extensive API response sends each and every data point related to your campaign. That means, if an Email was sent out to the lead, the API response will contain the information about the Email sent as well.
+SquadVoice's extensive API response sends each and every data point related to your campaign. That means, if an Email was sent out to the Lead, the API response will contain the information about the Email sent as well.
+
+Some variables used in the `keys` are:
+
+1. <strong>campaign_name</strong>: This is the name you set while creating the Campaign.
+2. <strong>block_name</strong>: This is the name of the block you define in your sequence.
+
 
 Following are the different formats for each outreach type.
 
@@ -48,26 +54,25 @@ Following are the different formats for each outreach type.
 }
 ```
 
-A Call Attempt is made when you add a script etc. to the Campaign. 
+A Call Attempt is made when you add a script etc. to the Campaign.
 
-<strong>call_attempt_{campaign_name}_1</strong><br>
-Since for each lead and script, we might make multiple attempts, we append each attempt for the same script to a list.
+It adds the following `keys` to the `json` response:
 
-<strong>last_call_attempt_{campaign_name}_1</strong><br>
-Also, to make it easy to consume without writing code, we send out the answers for the last call attempt that was made for that script also separately under this header.
+1. <strong>call_attempt_{campaign_name}_1</strong>: Since for each Lead, we might make multiple attempts, we add each attempt to a list.
+2. <strong>last_call_attempt_{campaign_name}_1</strong>: Also, to make it easy to consume without writing code, we send out the answers for the last call attempt that was made for that lead also separately in this key.
 
 
 ### Response Format
 
 | Key   | Description   |
 |------------------------ |---------------------------------------------------------------  |
-| reference_id   | Unique Identifier for the Call Attempt  |
+| reference_id   | Unique Identifier of the Call Attempt  |
 | outcome_id  | ID of the outcome of the Call Attempt  |
-| outcome_name  | Human readable name of the outcome  |
+| outcome_name  | Name of the outcome  |
 | call_duration  | Duration of the Call   |
-| called_at   | Epoch timestamp at which the call was made   |
+| called_at   | Epoch timestamp   |
 | report_keys_order   | List of keys in order of which they were asked by the Lead  |
-| question_1  | answer 1 |
+| question_1  | answer 1 (these are based on the script that you created) |
 
 
 ## Gmail
@@ -83,8 +88,9 @@ Also, to make it easy to consume without writing code, we send out the answers f
 }
 ```
 
-<strong>gmail_{block_name}</strong><br>
-Key under which the data for this type is stored.
+It adds the following `keys` to the `json` response:
+
+1. <strong>gmail_{block_name}</strong>
 
 ### Response Format
 
@@ -112,8 +118,9 @@ Key under which the data for this type is stored.
 }
 ```
 
-<strong>ivr_{block_name}</strong><br>
-Key under which the data for this type is stored.
+It adds the following `keys` to the `json` response:
+
+1. <strong>ivr_{block_name}</strong>
 
 ### Response Format
 
@@ -123,7 +130,7 @@ Key under which the data for this type is stored.
 | status  | Status of the operation  |
 | text_to_speak  | Text that was spoken  |
 | multi_text_to_speak  | Multiple text that was spoken  |
-| dtmf_response | Response by the lead, if any |
+| dtmf_response | Response by the Lead, if any |
 | duration   | Number of seconds for which the IVR was played   |
 | sent_at | Epoch timestamp of when the operation was performed |
 
@@ -139,8 +146,9 @@ Key under which the data for this type is stored.
 }
 ```
 
-<strong>ivr_{block_name}</strong><br>
-Key under which the data for this type is stored.
+It adds the following `keys` to the `json` response:
+
+1. <strong>sms_{block_name}</strong>
 
 ### Response Format
 
