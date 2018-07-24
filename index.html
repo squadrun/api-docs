@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
+    <title>SquadVoice API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -209,7 +210,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.png" class="logo" alt="Logo" />
+      <img src="images/squadvoice.svg" class="logo" alt="Squadvoice" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="python">python</a>
@@ -272,8 +273,6 @@
 <aside class="notice">
     If you are a business based in India, use our <a href="v1/in.html">India specific API</a>.
 </aside>
-
-<p>The API is organized around REST. All requests should be made over SSL. All request and response bodies, including errors, are encoded in JSON.</p>
 <h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/oauth/token/"</span>
@@ -344,6 +343,10 @@
 <p>They can be found by signing up on SquadRun&#39;s <a href="https://app.squadvoice.co/voice/dashboard/campaigns/">Client Dashboard</a>.</p>
 
 <p><code>client_id</code> and <code>client_secret</code> can be found on the <a href="https://app.squadvoice.co/voice/dashboard/integrations/">API Integration Page</a> on the dashboard.</p>
+
+<aside class="notice">
+  <code>/oauth/token/</code> endpoint accepts data as a POST form and not a json dump unlike rest of the APIs below
+</aside>
 <h1 id='leads'>Leads</h1><h2 id='create-a-lead'>Create a Lead</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
@@ -375,18 +378,15 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Content-Type</td>
-<td>True</td>
 <td>&quot;application/json&quot;</td>
 </tr>
 <tr>
 <td>Authorization</td>
-<td>True</td>
 <td>&quot;Bearer {access_token}&quot;</td>
 </tr>
 </tbody></table>
@@ -498,18 +498,15 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
-<th>Description</th>
+<th>Value</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>Content-Type</td>
-<td>True</td>
 <td>&quot;application/json&quot;</td>
 </tr>
 <tr>
 <td>Authorization</td>
-<td>True</td>
 <td>&quot;Bearer {access_token}&quot;</td>
 </tr>
 </tbody></table>
