@@ -258,7 +258,8 @@
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"phone_number"</span><span class="p">:</span> <span class="s">"{valid phone number}"</span><span class="p">,</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"{same as phone_number}"</span><span class="p">,</span>
-    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Doe"</span>
+    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Doe"</span><span class="p">,</span>
+    <span class="s">"affiliate_id"</span><span class="p">:</span> <span class="s">"C457F"</span>
     <span class="s">"{custom_field_1}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span><span class="p">,</span>
     <span class="s">"{custom_field_2}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span>
 <span class="p">}</span>
@@ -273,7 +274,7 @@
 -H <span class="s1">'Authorization: Bearer {access_token}'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-binary <span class="s1">$'{"phone_number": "{valid phone number}", "lead_id": "{same as phone_number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'</span>
+"contact_name": "John Doe", "affiliate_id": "C457F", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'</span>
 </code></pre>
 <p>Use this API to create a new Lead in your Squadvoice Campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -330,6 +331,11 @@
 <td>contact_name</td>
 <td>True</td>
 <td>Name of the Lead being contacted</td>
+</tr>
+<tr>
+<td>affiliate_id</td>
+<td>True</td>
+<td>Unique ID for each Affiliate</td>
 </tr>
 <tr>
 <td>state_code</td>
