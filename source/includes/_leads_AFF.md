@@ -10,7 +10,8 @@ url = "https://app.squadrun.co/api/v1/leads/create/{campaign_id}/"
 payload = {
     "phone_number": "{valid phone number}",
     "lead_id": "{same as phone_number}",
-    "contact_name": "John Doe"
+    "contact_name": "John Doe",
+    "affiliate_id": "C457F"
     "{custom_field_1}": "{custom_value}",
     "{custom_field_2}": "{custom_value}"
 }
@@ -28,7 +29,7 @@ curl 'https://app.squadrun.co/api/v1/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer {access_token}' \
 -H 'Content-Type: application/json' \
 --data-binary $'{"phone_number": "{valid phone number}", "lead_id": "{same as phone_number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'
+"contact_name": "John Doe", "affiliate_id": "C457F", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'
 ```
 
 Use this API to create a new Lead in your Squadvoice Campaign.
@@ -57,6 +58,7 @@ Use this API to create a new Lead in your Squadvoice Campaign.
 | lead_id   | True  | Same as phone_number  |
 | phone_number  | True  | Valid phone number of the Lead  |
 | contact_name  | True  | Name of the Lead being contacted  |
+| affiliate_id  | True  | Unique ID for each Affiliate  |
 | state_code    | True  | Two letter State Code          |
 | ebr_datetime  | False | EBR Datetime for the Lead      |
 | custom_field  | True  | Any key value pair other than this  |
