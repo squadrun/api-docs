@@ -179,3 +179,54 @@ The response you will get is a combination of some fixed keys and some dynamic k
     Please find an extensive documentation here: <a href="#response-formats">Response formats</a>
   </p>
 </aside>
+
+## Delete a Lead
+
+```python
+import requests
+import json
+
+url = "https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/"
+payload = {
+    "lead_id": 1
+}
+headers = {
+    "Authorization": "Bearer test_token", 
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json.dumps(payload), headers=headers)
+response.json()
+```
+
+```shell
+curl 'https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/' \
+-H 'Authorization: Bearer test_token' \
+-H 'Content-Type: application/json' \
+--data-binary $'{"lead_id": 1}'
+```
+
+Use this API to delete a Lead in your Squadvoice Campaign.
+
+### HTTP Request
+
+`POST https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/"`
+
+### Headers
+
+| Parameter 	| Value 	|
+|---------------	|-------------------------	|
+| Content-Type 	| "application/json" 	|
+| Authorization 	| "Bearer {access_token}" 	|
+
+### Path Parameters
+
+| Parameter   | Required  | Description   |
+|-------------  |---------- |------------------------ |
+| campaign_id   | True  | The ID of the Campaign  |
+
+### Body Parameters
+
+| Parameter   | Required  | Description   |
+|-------------- |---------- |------------------------------------ |
+| lead_id   | True  | Unique Identifier of the Lead  |
