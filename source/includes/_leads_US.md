@@ -183,13 +183,13 @@ The response you will get is a combination of some fixed keys and some dynamic k
   </p>
 </aside>
 
-## Delete a Lead
+## Disable a Lead
 
 ```python
 import requests
 import json
 
-url = "https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/"
+url = "https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/"
 payload = {
     "lead_id": 1
 }
@@ -203,17 +203,17 @@ response.json()
 ```
 
 ```shell
-curl 'https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/' \
+curl 'https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'{"lead_id": 1}'
 ```
 
-Use this API to delete a Lead in your Squadvoice Campaign.
+Use this API to disable a Lead in your Squadvoice Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v1/leads/delete/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/"`
 
 ### Headers
 
