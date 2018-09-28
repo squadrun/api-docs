@@ -670,7 +670,7 @@
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
---data-binary <span class="s1">$'{"lead_id": 1}'</span>
+--data-binary <span class="s1">$'[{"lead_id": 1}, {"lead_id": 2}]'</span>
 </code></pre>
 <p>Use this API to disable a Lead in your Squadvoice Campaign.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
