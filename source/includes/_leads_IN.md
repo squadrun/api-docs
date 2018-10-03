@@ -7,13 +7,22 @@ import requests
 import json
 
 url = "https://app.squadrun.co/api/v1/leads/create/{campaign_id}/"
-payload = {
+payload = [
+    {
     "lead_id": 1,
     "phone_number": "{valid phone number}",
     "contact_name": "John Doe"
     "{custom_field_1}": "{custom_value}",
     "{custom_field_2}": "{custom_value}"
-}
+    },
+    {
+    "lead_id": 2,
+    "phone_number": "{valid phone number}",
+    "contact_name": "John Smith"
+    "{custom_field_1}": "{custom_value}",
+    "{custom_field_2}": "{custom_value}"
+    }
+]
 headers = {
     "Authorization": "Bearer test_token", 
     "Content-Type": "application/json"
@@ -187,9 +196,11 @@ import requests
 import json
 
 url = "https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/"
-payload = {
-    "lead_id": 1
-}
+payload = [
+    {"lead_id": 1},
+    {"lead_id": 2}
+]
+
 headers = {
     "Authorization": "Bearer test_token", 
     "Content-Type": "application/json"
