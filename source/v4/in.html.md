@@ -6,10 +6,9 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - python
 
 includes:
-  - introduction_IN
+  - introduction_IN_V4
   - authentication
   - leads_IN_V4
-  - response_formats
   - errors
 
 search: true

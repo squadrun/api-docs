@@ -70,8 +70,8 @@ Use this API to create new Leads in your SquadVoice Campaign.
 
 | Parameter   | Required  | Description   |
 |-------------- |---------- |------------------------------------ |
-| `lead_id`   | True  | Unique Identifier of the Lead  |
-| `phone_number`  | True  | Valid phone number of the Lead  |
+| `lead_id`   | True  | Unique Identifier of the Lead for the campaign.|
+| `phone_number`  | True  | A valid indian phone number of the Lead.|
 | `contact_name`  | True  | Name of the Lead being contacted  |
 | `custom_field` | True  | Any key value pair other than this  |
 | `custom_field`  | True  | Any key value pair other than this  |
@@ -117,7 +117,7 @@ curl
 -X GET "https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&page_size=1"
 ```
 
-> The above command returns JSON structured like this:
+> The above script returns JSON structured like this:
 
 ```json
 {
@@ -160,7 +160,7 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 | Parameter 	| Value 	|
 |---------------	|-------------------------	|
 | `Content-Type` 	| `application/json` 	|
-| `Authorization` 	| `Bearer {access_token}`` 	|
+| `Authorization` 	| `Bearer {access_token}` 	|
 
 ### Request Path Parameters
 
@@ -190,9 +190,9 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 | `created_at`  | Epoch timestamp   |
 | `campaign_id`   | Campaign ID which you sent in the URL too   |
 | `latest_recording_url` | Latest call recording of the conversation with the lead. |
-| `latest_called_at` | Date and time at which latest call was made to the lead. ISOFORMAT(``%Y-%m-%dT%H:%M:%S`)|
+| `latest_called_at` | Date and time at which latest call was made to the lead. ISOFORMAT(`%Y-%m-%dT%H:%M:%S`)|
 | `lead_outcome` | Outcome for the lead. |
-| `processed_at` | Date and time at which the lead was processed. ISOFORMAT(``%Y-%m-%dT%H:%M:%S`) |
+| `processed_at` | Date and time at which the lead was processed. ISOFORMAT(`%Y-%m-%dT%H:%M:%S`) |
 | `lead_responses` | JSON object containing responses captured for the lead as key-value pairs. |
 
 
