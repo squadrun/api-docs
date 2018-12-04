@@ -33,7 +33,7 @@ response.json()
 ```
 
 ```shell
-curl 'https://app.squadrun.co/api/v1/leads/create/{campaign_id}/' \
+curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'{"lead_id": 1, "phone_number": "{valid phone number}", \
@@ -149,7 +149,7 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 
 ### HTTP Request
 
-`GET https://app.squadrun.co/api/v1/leads/responses/{campaign_id}/`
+`GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/`
 
 ### Request Content-Type
 `application/json`
@@ -252,8 +252,8 @@ Disabling the lead will stop all reach-outs on it.
 
 | Parameter 	| Value 	|
 |---------------	|-------------------------	|
-| Content-Type 	| `application/json` 	|
-| Authorization 	| `Bearer {access_token}`` 	|
+| `Content-Type` 	| `application/json` 	|
+| `Authorization` 	| `Bearer {access_token}`` 	|
 
 ### Request Path Parameters
 
