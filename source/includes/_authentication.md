@@ -36,6 +36,7 @@ curl -X POST -d \
     "scope": "read write"
 }
 ```
+All the API requests to SQUAD are authenticated via `Bearer` auth.
 
 Use this API to generate an access token that can be used for authentication in subsequent API requests.
 
@@ -43,15 +44,36 @@ Use this API to generate an access token that can be used for authentication in 
 
 `POST https://app.squadrun.co/oauth/token/`
 
+
+### Request Content-Type
+
+`application/x-www-form-urlencoded`
+
 ### Body Parameters
 
 | Parameter   | Required  | Description   |
 |---------------  |---------- |------------------------------------------------------------ |
-| client_id   | True  | Client Identifier   |
-| client_secret   | True  | Client Secret   |
-| grant_type  | True  | "password" is the grant_type that should be sent initially  |
-| username  | True  | Username  |
-| password  | True  | Password  |
+| `client_id`   | True  | Client Identifier   |
+| `client_secret`   | True  | Client Secret   |
+| `grant_type`  | True  | "password" is the grant_type that should be sent initially  |
+| `username`  | True  | Username  |
+| `password`  | True  | Password  |
+
+
+### Response Content-Type
+
+`application/json`
+
+
+### Response Format
+
+| Parameter    |Description   |
+|-------------|------------------------------------------------------------ |
+| `access_token`    |Access token to be used to authenticate every request.|
+| `token_type`   | Bearer |
+| `expires_in`  | Seconds after which the access token will expire. Once the access token has expired, you'll need the `refresh_token` to get a new access token.   |
+| `scope`| Scopes granted for the access token|
+
 
 ### How to get the credentials
 They can be found by signing up on SquadRun's [Client Dashboard](https://app.squadvoice.co/voice/dashboard/campaigns/).
