@@ -36,7 +36,7 @@ Use this API to create a new Lead in your Squadvoice Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v1/leads/create/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v1/leads/create/{campaign_id}/`
 
 ### Headers
 

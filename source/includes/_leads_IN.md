@@ -44,7 +44,7 @@ Use this API to create a new Lead in your Squadvoice Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v1/leads/create/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v1/leads/create/{campaign_id}/`
 
 ### Headers
 
@@ -221,7 +221,7 @@ Use this API to disable a Lead in your Squadvoice Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v1/leads/disable/{campaign_id}/`
 
 ### Headers
 
