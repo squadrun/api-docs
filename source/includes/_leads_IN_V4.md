@@ -36,15 +36,15 @@ response.json()
 curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
---data-binary $'{"lead_id": 1, "phone_number": "{valid phone number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'
+--data-binary $'[{"lead_id": 1, "phone_number": "{valid phone number}", \
+"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'
 ```
 
 Use this API to create new Leads in your SquadVoice Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
 
 
 ### Request Content-Type
@@ -63,7 +63,7 @@ Use this API to create new Leads in your SquadVoice Campaign.
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | The ID of the Campaign  |
+| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 
 ### Request Body Parameters
@@ -73,8 +73,8 @@ Use this API to create new Leads in your SquadVoice Campaign.
 | `lead_id`   | True  | Unique Identifier of the Lead for the campaign.|
 | `phone_number`  | True  | A valid indian phone number of the Lead.|
 | `contact_name`  | True  | Name of the Lead being contacted  |
-| `custom_field` | True  | Any key value pair other than this  |
-| `custom_field`  | True  | Any key value pair other than this  |
+| `custom_field` | True  | Any data in key value pair about the lead required for the campaign|
+| `custom_field`  | True  | Any data in key value pair about the lead required for the campaign  |
 
 <aside class="success">
   <b>Data Security</b>
@@ -114,6 +114,7 @@ response.json()
 ```shell
 curl 
 -H "Authorization: Bearer test_token" 
+-H 'Content-Type: application/json' \
 -X GET "https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&page_size=1"
 ```
 
@@ -166,7 +167,7 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | The ID of the Campaign  |
+| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 ### Request Query Parameters
 
@@ -242,7 +243,7 @@ Disabling the lead will stop all reach-outs on it.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/"`
+`POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
 
 ### Request Content-Type
 `application/json`
@@ -259,7 +260,7 @@ Disabling the lead will stop all reach-outs on it.
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | The ID of the Campaign  |
+| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 ### Request Body Parameters
 

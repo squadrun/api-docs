@@ -24,7 +24,7 @@ curl -X POST -d \
 &password=test_api_user" \https://app.squadrun.co/oauth/token/
 ```
 
-> The above script command returns JSON structured like this:
+> The above script returns JSON structured like this:
 
 ```json
 {
@@ -107,10 +107,10 @@ response.json()
 ```shell
 curl -X POST -d \
 "client_id=test_client_id&client_secret=test_client_secret
-&grant_type=refresh_token&refresh_token=rfresh_token_value" \https://app.squadrun.co/oauth/token/
+&grant_type=refresh_token&refresh_token=refresh_token_value" \https://app.squadrun.co/oauth/token/
 ```
 
-> The above script command returns JSON structured like this:
+> The above script returns JSON structured like this:
 
 ```json
 {
