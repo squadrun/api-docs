@@ -260,7 +260,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='getting-started'>Getting Started</h1>
-<p>Welcome to Squadvoice API! <a href="https://www.squadvoice.co/">SquadVoice</a> provides businesses with an omni-channel outreach engine + distributed team of expert calling reps. Our platform qualifies your Leads faster and provides more sales opportunities. You can use this API to access our API endpoints such as Leads API to add Leads to your campaigns or Response API to know status of your Leads. </p>
+<p>Welcome to Squadvoice API! <a href="https://www.squadvoice.in/">SquadVoice</a> provides businesses with an omni-channel outreach engine + distributed team of expert calling reps. Our platform qualifies your Leads faster and provides more sales opportunities. You can use this API to access our API endpoints such as Leads API to add Leads to your campaigns or Response API to know status of your Leads. </p>
 <h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/oauth/token/"</span>
@@ -280,7 +280,7 @@
 &amp;password=test_api_user"</span> <span class="se">\h</span>ttps://app.squadrun.co/oauth/token/
 </code></pre>
 <blockquote>
-<p>The above script command returns JSON structured like this:</p>
+<p>The above script returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OBs8bc5PdrzQNd3FaMRp5CkHFhinD9"</span><span class="p">,</span><span class="w">
@@ -383,10 +383,10 @@
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl -X POST -d <span class="se">\</span>
 <span class="s2">"client_id=test_client_id&amp;client_secret=test_client_secret
-&amp;grant_type=refresh_token&amp;refresh_token=rfresh_token_value"</span> <span class="se">\h</span>ttps://app.squadrun.co/oauth/token/
+&amp;grant_type=refresh_token&amp;refresh_token=refresh_token_value"</span> <span class="se">\h</span>ttps://app.squadrun.co/oauth/token/
 </code></pre>
 <blockquote>
-<p>The above script command returns JSON structured like this:</p>
+<p>The above script returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OBs8bc5PdrzQNd3FaMRp5CkHFhinD9"</span><span class="p">,</span><span class="w">
@@ -536,12 +536,12 @@
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
---data-binary <span class="s1">$'{"lead_id": 1, "phone_number": "{valid phone number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}'</span>
+--data-binary <span class="s1">$'[{"lead_id": 1, "phone_number": "{valid phone number}", \
+"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'</span>
 </code></pre>
 <p>Use this API to create new Leads in your SquadVoice Campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/&quot;</code></p>
+<p><code>POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/</code></p>
 <h3 id='request-content-type'>Request Content-Type</h3>
 <p><code>application/json</code></p>
 <h3 id='request-headers'>Request Headers</h3>
@@ -571,7 +571,7 @@
 <tr>
 <td><code>campaign_id</code></td>
 <td>True</td>
-<td>The ID of the Campaign</td>
+<td>ID of the Campaign (You can get your campaign_id by contacting <code>voicesales@squadrun.co</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='request-body-parameters'>Request Body Parameters</h3>
@@ -600,12 +600,12 @@
 <tr>
 <td><code>custom_field</code></td>
 <td>True</td>
-<td>Any key value pair other than this</td>
+<td>Any data in key value pair about the lead required for the campaign</td>
 </tr>
 <tr>
 <td><code>custom_field</code></td>
 <td>True</td>
-<td>Any key value pair other than this</td>
+<td>Any data in key value pair about the lead required for the campaign</td>
 </tr>
 </tbody></table>
 
@@ -636,6 +636,7 @@
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl 
 -H <span class="s2">"Authorization: Bearer test_token"</span> 
+-H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 -X GET <span class="s2">"https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&amp;page_size=1"</span>
 </code></pre>
 <blockquote>
@@ -697,7 +698,7 @@
 <tr>
 <td><code>campaign_id</code></td>
 <td>True</td>
-<td>The ID of the Campaign</td>
+<td>ID of the Campaign (You can get your campaign_id by contacting <code>voicesales@squadrun.co</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='request-query-parameters'>Request Query Parameters</h3>
@@ -820,7 +821,7 @@
 <p>Use this API to disable a Lead in your SquadVoice Campaign.
 Disabling the lead will stop all reach-outs on it.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/&quot;</code></p>
+<p><code>POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/</code></p>
 <h3 id='request-content-type-3'>Request Content-Type</h3>
 <p><code>application/json</code></p>
 <h3 id='request-headers-3'>Request Headers</h3>
@@ -850,7 +851,7 @@ Disabling the lead will stop all reach-outs on it.</p>
 <tr>
 <td><code>campaign_id</code></td>
 <td>True</td>
-<td>The ID of the Campaign</td>
+<td>ID of the Campaign (You can get your campaign_id by contacting <code>voicesales@squadrun.co</code>)</td>
 </tr>
 </tbody></table>
 <h3 id='request-body-parameters-2'>Request Body Parameters</h3>
