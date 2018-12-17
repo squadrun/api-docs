@@ -7,7 +7,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - introduction_IN_V4
-  - authentication
   - leads_IN_V4
   - errors
 

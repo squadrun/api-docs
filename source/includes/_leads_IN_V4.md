@@ -59,11 +59,14 @@ Use this API to create new Leads in your SquadVoice Campaign.
 | Content-Type 	| `application/json` 	|
 | Authorization 	| `Bearer {access_token}` 	|
 
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+
 ### Path Parameters
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 
 ### Request Body Parameters
@@ -163,11 +166,14 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 | `Content-Type` 	| `application/json` 	|
 | `Authorization` 	| `Bearer {access_token}` 	|
 
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+
 ### Request Path Parameters
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 ### Request Query Parameters
 
@@ -254,20 +260,22 @@ Disabling the lead will stop all reach-outs on it.
 | Parameter 	| Value 	|
 |---------------	|-------------------------	|
 | `Content-Type` 	| `application/json` 	|
-| `Authorization` 	| `Bearer {access_token}`` 	|
+| `Authorization` 	| `Bearer {access_token}` 	|
+
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
 
 ### Request Path Parameters
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `campaign_id`   | True  | ID of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
 
 ### Request Body Parameters
 
 | Parameter   | Required  | Description   |
 |-------------- |---------- |------------------------------------ |
 | `lead_id`   | True  | Unique Identifier of the Lead  |
-
 
 ### Response Status Code
 
