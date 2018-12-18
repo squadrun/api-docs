@@ -11,14 +11,14 @@ payload = [
     {
     "lead_id": "uniqueleadid1",
     "phone_number": "{valid phone number}",
-    "contact_name": "John Doe"
+    "contact_name": "John Doe",
     "{custom_field_1}": "{custom_value}",
     "{custom_field_2}": "{custom_value}"
     },
     {
     "lead_id": "uniqueleadid2",
     "phone_number": "{valid phone number}",
-    "contact_name": "John Smith"
+    "contact_name": "John Smith",
     "{custom_field_1}": "{custom_value}",
     "{custom_field_2}": "{custom_value}"
     }
