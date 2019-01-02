@@ -210,6 +210,75 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
 
+## Lead Processed Webhook
+
+SquadVoice also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadVoice is done processing the lead. 
+
+> Payload of webhook is of the following format
+
+```json
+    
+{
+    "phone_number": "+91xxxxxxxxxx",
+    "lead_id": "test_lead_id",
+    "latest_recording_url": "https://www.squadvoice.in/",
+    "campaign_id": "{campaign_id}",
+    "latest_called_at": "2018-12-03T14:36:38+00:00",
+    "lead_outcome": "Connected : Objective Met",
+    "processed_at": "2018-12-03T14:37:54+00:00",
+    "contact_name": "John Doe",
+    "created_at": "2018-12-03T14:36:01+00:00",
+    "lead_responses": {
+        "response_key_1": "response_value_1",
+        "response_key_2": "response_value_2",
+        "response_key_3": "response_value_3",
+    }
+}
+
+```
+
+### HTTP POST Request
+
+`POST https://your_webhook_end_point_here`
+
+### Webhook Content-Type
+`application/json`
+
+
+### Webhook Headers
+
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+
+
+### Webhook Payload Structure
+
+
+| Key   | Description   |
+|------------------------ |---------------------------------------------------------------  |
+| `lead_id`   | Unique Identifier of the Lead for the campaign. |
+| `phone_number`  | Phone number of the Lead  |
+| `contact_name`  | Name of the Lead  |
+| `created_at`  | Epoch timestamp   |
+| `campaign_id`   | Campaign ID which you sent in the URL too   |
+| `latest_recording_url` | Latest call recording of the conversation with the lead. |
+| `latest_called_at` | Date and time at which latest call was made to the lead. ISOFORMAT(`%Y-%m-%dT%H:%M:%S`)|
+| `lead_outcome` | Outcome for the lead. |
+| `processed_at` | Date and time at which the lead was processed. ISOFORMAT(`%Y-%m-%dT%H:%M:%S`) |
+| `lead_responses` | JSON object containing responses captured for the lead as key-value pairs. |
+
+
+### Response Status Code
+
+We expect following responses status code for the webhook requests
+
+`201 OK` for a successful webhook request.
+
+`403 Forbidden` if the request authentication was not successful.
+
+`400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
 ## Disable one or more leads.
 
 ```python
