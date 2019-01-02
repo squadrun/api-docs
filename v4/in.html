@@ -233,6 +233,9 @@
                     <a href="#get-leads" class="toc-h2 toc-link" data-title="Get Leads">Get Leads</a>
                   </li>
                   <li>
+                    <a href="#lead-processed-webhook" class="toc-h2 toc-link" data-title="Lead Processed Webhook">Lead Processed Webhook</a>
+                  </li>
+                  <li>
                     <a href="#disable-one-or-more-leads" class="toc-h2 toc-link" data-title="Disable one or more leads.">Disable one or more leads.</a>
                   </li>
               </ul>
@@ -255,14 +258,14 @@
     <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span><span class="p">,</span>
     <span class="s">"phone_number"</span><span class="p">:</span> <span class="s">"{valid phone number}"</span><span class="p">,</span>
-    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Doe"</span>
+    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Doe"</span><span class="p">,</span>
     <span class="s">"{custom_field_1}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span><span class="p">,</span>
     <span class="s">"{custom_field_2}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span>
     <span class="p">},</span>
     <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid2"</span><span class="p">,</span>
     <span class="s">"phone_number"</span><span class="p">:</span> <span class="s">"{valid phone number}"</span><span class="p">,</span>
-    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Smith"</span>
+    <span class="s">"contact_name"</span><span class="p">:</span> <span class="s">"John Smith"</span><span class="p">,</span>
     <span class="s">"{custom_field_1}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span><span class="p">,</span>
     <span class="s">"{custom_field_2}"</span><span class="p">:</span> <span class="s">"{custom_value}"</span>
     <span class="p">}</span>
@@ -542,6 +545,102 @@
 <p><code>403 Forbidden</code> if the request authentication was not successful.</p>
 
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
+<h2 id='lead-processed-webhook'>Lead Processed Webhook</h2>
+<p>SquadVoice also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadVoice is done processing the lead. </p>
+
+<blockquote>
+<p>Payload of webhook is of the following format</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+91xxxxxxxxxx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_lead_id"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.squadvoice.in/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{campaign_id}"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T14:36:38+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_outcome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connected : Objective Met"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T14:37:54+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"contact_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T14:36:01+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lead_responses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"response_key_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response_value_1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"response_key_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response_value_2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"response_key_3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"response_value_3"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-post-request'>HTTP POST Request</h3>
+<p><code>POST https://your_webhook_end_point_here</code></p>
+<h3 id='webhook-content-type'>Webhook Content-Type</h3>
+<p><code>application/json</code></p>
+<h3 id='webhook-headers'>Webhook Headers</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Content-Type</code></td>
+<td><code>application/json</code></td>
+</tr>
+</tbody></table>
+<h3 id='webhook-payload-structure'>Webhook Payload Structure</h3>
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>lead_id</code></td>
+<td>Unique Identifier of the Lead for the campaign.</td>
+</tr>
+<tr>
+<td><code>phone_number</code></td>
+<td>Phone number of the Lead</td>
+</tr>
+<tr>
+<td><code>contact_name</code></td>
+<td>Name of the Lead</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>Epoch timestamp</td>
+</tr>
+<tr>
+<td><code>campaign_id</code></td>
+<td>Campaign ID which you sent in the URL too</td>
+</tr>
+<tr>
+<td><code>latest_recording_url</code></td>
+<td>Latest call recording of the conversation with the lead.</td>
+</tr>
+<tr>
+<td><code>latest_called_at</code></td>
+<td>Date and time at which latest call was made to the lead. ISOFORMAT(<code>%Y-%m-%dT%H:%M:%S</code>)</td>
+</tr>
+<tr>
+<td><code>lead_outcome</code></td>
+<td>Outcome for the lead.</td>
+</tr>
+<tr>
+<td><code>processed_at</code></td>
+<td>Date and time at which the lead was processed. ISOFORMAT(<code>%Y-%m-%dT%H:%M:%S</code>)</td>
+</tr>
+<tr>
+<td><code>lead_responses</code></td>
+<td>JSON object containing responses captured for the lead as key-value pairs.</td>
+</tr>
+</tbody></table>
+<h3 id='response-status-code-2'>Response Status Code</h3>
+<p>We expect following responses status code for the webhook requests</p>
+
+<p><code>201 OK</code> for a successful webhook request.</p>
+
+<p><code>403 Forbidden</code> if the request authentication was not successful.</p>
+
+<p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='disable-one-or-more-leads'>Disable one or more leads.</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
@@ -615,7 +714,7 @@ Disabling the lead will stop all reach-outs on it.</p>
 <td>Unique Identifier of the Lead</td>
 </tr>
 </tbody></table>
-<h3 id='response-status-code-2'>Response Status Code</h3>
+<h3 id='response-status-code-3'>Response Status Code</h3>
 <p><code>201 OK</code> for a successful request.</p>
 
 <p><code>403 Forbidden</code> if the request authentication was not successful.</p>
