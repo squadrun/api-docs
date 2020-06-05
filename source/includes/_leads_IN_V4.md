@@ -336,3 +336,69 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
+
+## Delete a lead (Beta)
+
+```python
+import requests
+
+url = "https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/"
+
+payload = {
+    "lead_id": "uniqueleadid1"
+}
+
+headers = {
+    "Authorization": "Bearer test_token", 
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+response.json()
+```
+
+```shell
+curl 'https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/' \
+-H 'Authorization: Bearer test_token' \
+-H 'Content-Type: application/json' \
+--data-binary $'{"lead_id": "uniqueleadid1"}'
+```
+
+Use this API to delete all Personally Identifiable Information (PII) of a Lead from our platform.
+If the lead is in-process, all reach-outs to it would be stopped.
+
+### HTTP Request
+
+`POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/`
+
+### Request Headers
+
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
+
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+### Request Path Parameters
+
+| Parameter   | Required  | Description   |
+|-------------  |---------- |------------------------ |
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+
+### Request Body Parameters
+
+| Parameter   | Required  | Description   |
+|-------------- |---------- |------------------------------------ |
+| `lead_id`   | True  | Unique Identifier of the Lead  |
+
+### Response Status Code
+
+`202 Accepted` for a successful request.
+
+`403 Forbidden` if the request authentication was not successful.
+
+`404 Not Found` if the given lead_id doesn't exist on our platform.
+
+`400 Bad Request` if the request payload had some error. Specific error is provided in the response.
