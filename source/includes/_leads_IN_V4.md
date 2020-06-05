@@ -1,10 +1,9 @@
-# Leads
+# Lead
 
 ## Create Leads
 
 ```python
 import requests
-import json
 
 url = "https://app.squadrun.co/api/v4/leads/create/{campaign_id}/"
 payload = [
@@ -28,7 +27,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-response = requests.post(url, json.dumps(payload), headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 response.json()
 ```
 
@@ -37,19 +36,16 @@ curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'[{"lead_id": 1, "phone_number": "{valid phone number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'
+"contact_name": "John Doe", \
+"{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'
 ```
+
 
 Use this API to create new Leads in your SquadVoice Campaign.
 
 ### HTTP Request
 
 `POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
-
-
-### Request Content-Type
-
-`application/json`
 
 
 ### Request Headers
@@ -203,10 +199,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 | `lead_responses` | JSON object containing responses captured for the lead as key-value pairs. |
 
 
-### Response Content-Type
-`application/json`
-
-
 ### Response Status Code
 
 `200 OK` for a successful request.
@@ -247,10 +239,6 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
 
 `POST https://your_webhook_end_point_here`
 
-### Webhook Content-Type
-`application/json`
-
-
 ### Webhook Headers
 
 | Parameter     | Value     |
@@ -289,7 +277,6 @@ We expect following responses status code for the webhook requests
 
 ```python
 import requests
-import json
 
 url = "https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/"
 payload = [
@@ -302,7 +289,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-response = requests.post(url, json.dumps(payload), headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 response.json()
 ```
 
@@ -320,16 +307,12 @@ Disabling the lead will stop all reach-outs on it.
 
 `POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
 
-### Request Content-Type
-`application/json`
-
-
 ### Request Headers
 
-| Parameter 	| Value 	|
-|---------------	|-------------------------	|
-| `Content-Type` 	| `application/json` 	|
-| `Authorization` 	| `Bearer {access_token}` 	|
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
 
 You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
 
