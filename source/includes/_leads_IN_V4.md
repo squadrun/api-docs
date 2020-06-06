@@ -4,7 +4,6 @@
 
 ```python
 import requests
-import json
 
 url = "https://app.squadrun.co/api/v4/leads/create/{campaign_id}/"
 payload = [
@@ -28,7 +27,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-response = requests.post(url, json.dumps(payload), headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 response.json()
 ```
 
@@ -37,19 +36,16 @@ curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'[{"lead_id": 1, "phone_number": "{valid phone number}", \
-"contact_name": "John Doe", "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'
+"contact_name": "John Doe", \
+"{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'
 ```
+
 
 Use this API to create new Leads in your SquadVoice Campaign.
 
 ### HTTP Request
 
 `POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
-
-
-### Request Content-Type
-
-`application/json`
 
 
 ### Request Headers
@@ -203,10 +199,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 | `lead_responses` | JSON object containing responses captured for the lead as key-value pairs. |
 
 
-### Response Content-Type
-`application/json`
-
-
 ### Response Status Code
 
 `200 OK` for a successful request.
@@ -247,10 +239,6 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
 
 `POST https://your_webhook_end_point_here`
 
-### Webhook Content-Type
-`application/json`
-
-
 ### Webhook Headers
 
 | Parameter     | Value     |
@@ -289,7 +277,6 @@ We expect following responses status code for the webhook requests
 
 ```python
 import requests
-import json
 
 url = "https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/"
 payload = [
@@ -302,7 +289,7 @@ headers = {
     "Content-Type": "application/json"
 }
 
-response = requests.post(url, json.dumps(payload), headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 response.json()
 ```
 
@@ -320,16 +307,12 @@ Disabling the lead will stop all reach-outs on it.
 
 `POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
 
-### Request Content-Type
-`application/json`
-
-
 ### Request Headers
 
-| Parameter 	| Value 	|
-|---------------	|-------------------------	|
-| `Content-Type` 	| `application/json` 	|
-| `Authorization` 	| `Bearer {access_token}` 	|
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
 
 You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
 
@@ -351,5 +334,71 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `201 OK` for a successful request.
 
 `403 Forbidden` if the request authentication was not successful.
+
+`400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
+
+## Delete a lead (Beta)
+
+```python
+import requests
+
+url = "https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/"
+
+payload = {
+    "lead_id": "uniqueleadid1"
+}
+
+headers = {
+    "Authorization": "Bearer test_token", 
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+response.json()
+```
+
+```shell
+curl 'https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/' \
+-H 'Authorization: Bearer test_token' \
+-H 'Content-Type: application/json' \
+--data-binary $'{"lead_id": "uniqueleadid1"}'
+```
+
+Use this API to delete all Personally Identifiable Information (PII) of a Lead from our platform.
+If the lead is in-process, all reach-outs to it would be stopped.
+
+### HTTP Request
+
+`POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/`
+
+### Request Headers
+
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
+
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+### Request Path Parameters
+
+| Parameter   | Required  | Description   |
+|-------------  |---------- |------------------------ |
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+
+### Request Body Parameters
+
+| Parameter   | Required  | Description   |
+|-------------- |---------- |------------------------------------ |
+| `lead_id`   | True  | Unique Identifier of the Lead  |
+
+### Response Status Code
+
+`202 Accepted` for a successful request.
+
+`403 Forbidden` if the request authentication was not successful.
+
+`404 Not Found` if the given lead_id doesn't exist on our platform.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
