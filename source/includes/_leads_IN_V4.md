@@ -1,4 +1,4 @@
-# Lead
+# Leads
 
 ## Create Leads
 
