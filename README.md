@@ -1,14 +1,23 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
-  <br>
-  <a href="https://travis-ci.org/lord/slate"><img src="https://travis-ci.org/lord/slate.svg?branch=master" alt="Build Status"></a>
-</p>
+# SquadVoice API docs
 
-<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/lord/img/master/screenshot-slate.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
+# how to run
 
-<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://lord.github.io/slate">lord.github.io/slate</a>.</em></p>
+```shell
+docker run -d --rm --name slate -p 4567:4567 -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source ayushshanker/slate:0.3
+
+# and then run
+
+watchman-make -p source/** --run 'docker exec -it slate /bin/bash -c "bundle exec middleman build"'
+
+# or if you don't have watchman installed, run this manually after every edit:
+
+docker exec -it slate /bin/bash -c "RUBYOPT='-W0' bundle exec middleman build"
+
+```
+
+
+# Below stuff is from slate project's default README
 
 Features
 ------------
