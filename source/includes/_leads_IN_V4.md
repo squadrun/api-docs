@@ -402,3 +402,141 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `404 Not Found` if the given lead_id doesn't exist on our platform.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
+
+
+## Update a lead (Beta)
+
+```python
+import requests
+
+url = "https://app.squadrun.co/api/v4/leads/update/{campaign_id}/"
+
+payload = {
+    "lead_id": "uniqueleadid1",
+    "phone_number": "{new_valid phone number}",
+    "{custom_field_1}": "{new_custom_value}",
+}
+
+headers = {
+    "Authorization": "Bearer test_token", 
+    "Content-Type": "application/json"
+}
+
+response = requests.patch(url, json=payload, headers=headers)
+response.json()
+```
+
+```shell
+curl -i -X PATCH 'https://app.squadrun.co/api/v4/leads/update/{campaign_id}/' \
+-H 'Authorization: Bearer test_token' \
+-H 'Content-Type: application/json' \
+--data '{"lead_id": "uniqueleadid1", "phone_number": "{valid phone number}", "{custom_field}": "{custom_value}"}'
+```
+
+You can use this endpoint to update detail of the lead, which has been previously created using the create lead endpoint.
+
+
+### HTTP Request
+
+`PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/`
+
+### Request Headers
+
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
+
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+### Request Path Parameters
+
+| Parameter   | Required  | Description   |
+|-------------  |---------- |------------------------ |
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+
+### Request Body Parameters
+
+| Parameter   | Required  | Description   |
+|-------------- |---------- |------------------------------------ |
+| `lead_id`   | True  | Unique Identifier of the Lead, This value cannot be changed.  |
+| `phone_number`  | False | A valid indian phone number of the Lead.|
+| `contact_name`  | False  | Name of the Lead being contacted  |
+| `custom_field` | False | Any data in key value pair about the lead required for the campaign|
+
+### Response Status Code
+
+`200 OK` for a successful request.
+
+`403 Forbidden` if the request authentication was not successful.
+
+`404 Not Found` if the given lead_id doesn't exist on our platform.
+
+
+
+## Mark a lead converted (Beta)
+
+```python
+import requests
+
+url = "https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/"
+
+payload = {
+    "lead_id": "uniqueleadid1",
+    "detail": "{conversion detail}",
+}
+
+headers = {
+    "Authorization": "Bearer test_token", 
+    "Content-Type": "application/json"
+}
+
+response = requests.post(url, json=payload, headers=headers)
+response.json()
+```
+
+```shell
+curl -i 'https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/' \
+-H 'Authorization: Bearer test_token' \
+-H 'Content-Type: application/json' \
+--data '{"lead_id": "uniqueleadid1", "detail": "{conversion_detail}"}'
+```
+
+This endpoint can be used to mark a lead as end converted from your side.
+
+### HTTP Request
+
+`POST https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/`
+
+### Request Headers
+
+| Parameter     | Value     |
+|---------------    |-------------------------  |
+| `Content-Type`    | `application/json`    |
+| `Authorization`   | `Bearer {access_token}`   |
+
+You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+
+### Request Path Parameters
+
+| Parameter   | Required  | Description   |
+|-------------  |---------- |------------------------ |
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+
+### Request Body Parameters
+
+| Parameter   | Required  | Description   |
+|-------------- |---------- |------------------------------------ |
+| `lead_id`   | True  | Unique Identifier of the Lead  |
+| `detail`  | True | code string representing why the conversion happened (max 32 chars) | 
+
+### Response Status Code
+
+`200 OK` for a successful request.
+
+`403 Forbidden` if the request authentication was not successful.
+
+`404 Not Found` if the given lead_id doesn't exist on our platform.
+
+
