@@ -92,6 +92,9 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
+
 
 ## Get Leads
 
@@ -207,6 +210,9 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
+
 
 ## Lead Processed Webhook
 
@@ -273,6 +279,9 @@ We expect following responses status code for the webhook requests
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
+
 ## Disable one or more leads.
 
 ```python
@@ -336,6 +345,9 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 ## Delete a lead (Beta)
@@ -402,6 +414,9 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `404 Not Found` if the given lead_id doesn't exist on our platform.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
+
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 
@@ -473,6 +488,9 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 
 `404 Not Found` if the given lead_id doesn't exist on our platform.
 
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
+
 
 
 ## Mark a lead converted (Beta)
@@ -538,5 +556,8 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `404 Not Found` if the given lead_id doesn't exist on our platform.
+
+`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
