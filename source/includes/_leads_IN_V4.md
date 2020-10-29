@@ -47,6 +47,10 @@ Use this API to create new Leads in your SquadVoice Campaign.
 
 `POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 
 ### Request Headers
 
@@ -151,6 +155,10 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 
 `GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Content-Type
 `application/json`
 
@@ -239,6 +247,10 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
 
 `POST https://your_webhook_end_point_here`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Webhook Headers
 
 | Parameter     | Value     |
@@ -307,6 +319,10 @@ Disabling the lead will stop all reach-outs on it.
 
 `POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -371,6 +387,10 @@ If the lead is in-process, all reach-outs to it would be stopped.
 ### HTTP Request
 
 `POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/`
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 
 ### Request Headers
 
@@ -441,6 +461,10 @@ You can use this endpoint to update detail of the lead, which has been previousl
 
 `PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -508,6 +532,10 @@ This endpoint can be used to mark a lead as end converted from your side.
 ### HTTP Request
 
 `POST https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/`
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 
 ### Request Headers
 
