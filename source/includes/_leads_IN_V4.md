@@ -47,6 +47,10 @@ Use this API to create new Leads in your SquadVoice Campaign.
 
 `POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 
 ### Request Headers
 
@@ -91,9 +95,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
-
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 ## Get Leads
@@ -154,6 +155,10 @@ Use this API to get information about a Lead/Leads that has been processed by Sq
 
 `GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Content-Type
 `application/json`
 
@@ -210,9 +215,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
-
 
 ## Lead Processed Webhook
 
@@ -244,6 +246,10 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
 ### HTTP POST Request
 
 `POST https://your_webhook_end_point_here`
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 
 ### Webhook Headers
 
@@ -279,9 +285,6 @@ We expect following responses status code for the webhook requests
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
 
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
-
 ## Disable one or more leads.
 
 ```python
@@ -316,6 +319,10 @@ Disabling the lead will stop all reach-outs on it.
 
 `POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -345,9 +352,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
-
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 ## Delete a lead (Beta)
@@ -384,6 +388,10 @@ If the lead is in-process, all reach-outs to it would be stopped.
 
 `POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -414,9 +422,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `404 Not Found` if the given lead_id doesn't exist on our platform.
 
 `400 Bad Request` if the request payload had some error. Specific error is provided in the response.
-
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 
@@ -456,6 +461,10 @@ You can use this endpoint to update detail of the lead, which has been previousl
 
 `PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -487,9 +496,6 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `404 Not Found` if the given lead_id doesn't exist on our platform.
-
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
 
@@ -527,6 +533,10 @@ This endpoint can be used to mark a lead as end converted from your side.
 
 `POST https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/`
 
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
+
 ### Request Headers
 
 | Parameter     | Value     |
@@ -556,8 +566,5 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 `403 Forbidden` if the request authentication was not successful.
 
 `404 Not Found` if the given lead_id doesn't exist on our platform.
-
-`429 Too Many Requests` If number of requests hit is greater than specified limit. Specific error is provided in the response. Default rate limit is 100/minute.
-NOTE: You can increase your rate limit by contacting voicesales@squadrun.co
 
 
