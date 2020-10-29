@@ -252,6 +252,9 @@
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
+          <li>
+            <a href="#rate-limiting" class="toc-h1 toc-link" data-title="Rate Limiting">Rate Limiting</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -299,6 +302,10 @@
 <p>Use this API to create new Leads in your SquadVoice Campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-headers'>Request Headers</h3>
 <table><thead>
 <tr>
@@ -426,6 +433,10 @@
 <p>Use this API to get information about a Lead/Leads that has been processed by SquadVoice.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-content-type'>Request Content-Type</h3>
 <p><code>application/json</code></p>
 <h3 id='request-headers-2'>Request Headers</h3>
@@ -580,6 +591,10 @@
 
 </span></code></pre><h3 id='http-post-request'>HTTP POST Request</h3>
 <p><code>POST https://your_webhook_end_point_here</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='webhook-headers'>Webhook Headers</h3>
 <table><thead>
 <tr>
@@ -672,6 +687,10 @@
 Disabling the lead will stop all reach-outs on it.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-headers-3'>Request Headers</h3>
 <table><thead>
 <tr>
@@ -748,6 +767,10 @@ Disabling the lead will stop all reach-outs on it.</p>
 If the lead is in-process, all reach-outs to it would be stopped.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-headers-4'>Request Headers</h3>
 <table><thead>
 <tr>
@@ -827,6 +850,10 @@ If the lead is in-process, all reach-outs to it would be stopped.</p>
 <p>You can use this endpoint to update detail of the lead, which has been previously created using the create lead endpoint.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-headers-5'>Request Headers</h3>
 <table><thead>
 <tr>
@@ -918,6 +945,10 @@ If the lead is in-process, all reach-outs to it would be stopped.</p>
 <p>This endpoint can be used to mark a lead as end converted from your side.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/</code></p>
+
+<aside class="notice">
+You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
+</aside>
 <h3 id='request-headers-6'>Request Headers</h3>
 <table><thead>
 <tr>
@@ -1021,6 +1052,9 @@ This defines all the error codes you might encounter in the code
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
+<h1 id='rate-limiting'>Rate Limiting</h1>
+<p>Only 100 hits are allowed per minute for a business. Specific error is provided in the response if the rate limit exceeds.
+NOTE: You can increase your rate limit by contacting voicesales@squadrun.co</p>
 
       </div>
       <div class="dark-box">
