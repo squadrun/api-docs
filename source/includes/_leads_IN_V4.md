@@ -142,7 +142,7 @@ curl
 			"lead_responses": {
 				"response_key_1": "response_value_1",
 				"response_key_2": "response_value_2",
-				"response_key_3": "response_value_3",
+				"response_key_3": "response_value_3"
 			}
 		}
 	]
@@ -237,7 +237,7 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
     "lead_responses": {
         "response_key_1": "response_value_1",
         "response_key_2": "response_value_2",
-        "response_key_3": "response_value_3",
+        "response_key_3": "response_value_3"
     }
 }
 
