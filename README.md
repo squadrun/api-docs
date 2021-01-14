@@ -14,6 +14,12 @@ watchman-make -p source/** --run 'docker exec -it slate /bin/bash -c "bundle exe
 
 docker exec -it slate /bin/bash -c "RUBYOPT='-W0' bundle exec middleman build"
 
+# If the above commands throw error then follow the below approach:
+  1. Run docker build . -t ayushshanker/slate:0.3
+  2. Then, docker run -d --rm --name slate -p 4567:4567 -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source ayushshanker/slate:0.3
+  3. Now localhost would be up and running at http://127.0.0.1:4567/
+  4. To check logs run, docker logs <container_id>, container_id is the id which you will see as an output of 2nd command
+
 ```
 
 
