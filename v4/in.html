@@ -6,7 +6,8 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="../images/favicon.ico" rel="icon" type="image/ico" />
-    <title>SquadVoice API Reference</title>
+    <title>SquadIQ API Reference</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
       .highlight table td { padding: 5px; }
@@ -210,7 +211,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="../images/squadvoice.svg" class="logo" alt="Squadvoice" />
+      <img src="../images/squadiq.svg" class="logo" alt="Squadiq" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="python">python</a>
@@ -261,14 +262,10 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='getting-started'>Getting Started</h1>
-<p>Welcome to Squadvoice API! <a href="https://www.squadvoice.in/">SquadVoice</a> provides businesses with an omni-channel outreach engine + distributed team of expert calling reps. Our platform qualifies your Leads faster and provides more sales opportunities. You can use this API to access our API endpoints such as Leads API to add Leads to your campaigns or Response API to know status of your Leads. </p>
-
-<aside class="notice">
-    🇺🇸 If you are a business based in the US, use our <a href="/v1/us.html">US specific APIs.</a>.
-</aside>
+<p>Welcome to SquadIQ API! <a href="https://www.squadiq.in/">SquadIQ</a> provides businesses with an omni-channel outreach engine + distributed team of expert calling reps. Our platform qualifies your Leads faster and provides more sales opportunities. You can use this API to access our API endpoints such as Leads API to add Leads to your campaigns or Response API to know status of your Leads. </p>
 <h1 id='leads'>Leads</h1><h2 id='create-leads'>Create Leads</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/create/{campaign_id}/"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/create/{campaign_id}/"</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span><span class="p">,</span>
@@ -292,16 +289,16 @@
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadiq.in/api/v4/leads/create/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-binary <span class="s1">$'[{"lead_id": 1, "phone_number": "{valid phone number}", \
 "contact_name": "John Doe", \
 "{custom_field_1}": "{custom_value}", "{custom_field_2}": "{custom_value}"}]'</span>
 </code></pre>
-<p>Use this API to create new Leads in your SquadVoice Campaign.</p>
+<p>Use this API to create new Leads in your SquadIQ Campaign.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/</code></p>
+<p><code>POST https://app.squadiq.in/api/v4/leads/create/{campaign_id}/</code></p>
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -323,7 +320,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='path-parameters'>Path Parameters</h3>
 <table><thead>
 <tr>
@@ -388,7 +385,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='get-leads'>Get Leads</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?page_size=1"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/?page_size=1"</span>
 
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer test_token"</span><span class="p">}</span>
 
@@ -401,7 +398,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </code></pre><pre class="highlight shell tab-shell"><code>curl 
 -H <span class="s2">"Authorization: Bearer test_token"</span> 
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
--X GET <span class="s2">"https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&amp;page_size=1"</span>
+-X GET <span class="s2">"https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&amp;page_size=1"</span>
 </code></pre>
 <blockquote>
 <p>The above script returns JSON structured like this:</p>
@@ -414,7 +411,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+91xxxxxxxxxx"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_lead_id"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"latest_recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.squadvoice.in/"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"latest_recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.squadiq.in/"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{campaign_id}"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"latest_called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T14:36:38+00:00"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"lead_outcome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connected : Objective Met"</span><span class="p">,</span><span class="w">
@@ -430,9 +427,9 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Use this API to get information about a Lead/Leads that has been processed by SquadVoice.</p>
+<p>Use this API to get information about a Lead/Leads that has been processed by SquadIQ.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/</code></p>
+<p><code>GET https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/</code></p>
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -456,7 +453,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='request-path-parameters'>Request Path Parameters</h3>
 <table><thead>
 <tr>
@@ -566,7 +563,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='lead-processed-webhook'>Lead Processed Webhook</h2>
-<p>SquadVoice also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadVoice is done processing the lead. </p>
+<p>SquadIQ also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadIQ is done processing the lead. </p>
 
 <blockquote>
 <p>Payload of webhook is of the following format</p>
@@ -575,7 +572,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </span><span class="p">{</span><span class="w">
     </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+91xxxxxxxxxx"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_lead_id"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"latest_recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.squadvoice.in/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"latest_recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.squadiq.in/"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{campaign_id}"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"latest_called_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-03T14:36:38+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"lead_outcome"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connected : Objective Met"</span><span class="p">,</span><span class="w">
@@ -665,7 +662,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='disable-one-or-more-leads'>Disable one or more leads.</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/disable/{campaign_id}/"</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span><span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span><span class="p">},</span>
     <span class="p">{</span><span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid2"</span><span class="p">}</span>
@@ -678,12 +675,12 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadiq.in/api/v4/leads/disable/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-binary <span class="s1">$'{"lead_id": 1}'</span>
 </code></pre>
-<p>Use this API to disable a Lead in your SquadVoice Campaign.
+<p>Use this API to disable a Lead in your SquadIQ Campaign.
 Disabling the lead will stop all reach-outs on it.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/</code></p>
@@ -708,7 +705,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='request-path-parameters-2'>Request Path Parameters</h3>
 <table><thead>
 <tr>
@@ -745,7 +742,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='delete-a-lead-beta'>Delete a lead (Beta)</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span>
@@ -758,7 +755,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-binary <span class="s1">$'{"lead_id": "uniqueleadid1"}'</span>
@@ -766,7 +763,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p>Use this API to delete all Personally Identifiable Information (PII) of a Lead from our platform.
 If the lead is in-process, all reach-outs to it would be stopped.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/</code></p>
+<p><code>POST https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/</code></p>
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -788,7 +785,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='request-path-parameters-3'>Request Path Parameters</h3>
 <table><thead>
 <tr>
@@ -827,7 +824,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p><code>400 Bad Request</code> if the request payload had some error. Specific error is provided in the response.</p>
 <h2 id='update-a-lead-beta'>Update a lead (Beta)</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/update/{campaign_id}/"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/update/{campaign_id}/"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span><span class="p">,</span>
@@ -842,14 +839,14 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -i -X PATCH <span class="s1">'https://app.squadrun.co/api/v4/leads/update/{campaign_id}/'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -i -X PATCH <span class="s1">'https://app.squadiq.in/api/v4/leads/update/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'{"lead_id": "uniqueleadid1", "phone_number": "{valid phone number}", "{custom_field}": "{custom_value}"}'</span>
 </code></pre>
 <p>You can use this endpoint to update detail of the lead, which has been previously created using the create lead endpoint.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/</code></p>
+<p><code>PATCH https://app.squadiq.in/api/v4/leads/update/{campaign_id}/</code></p>
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -871,7 +868,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='request-path-parameters-4'>Request Path Parameters</h3>
 <table><thead>
 <tr>
@@ -923,7 +920,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 <p><code>404 Not Found</code> if the given lead_id doesn&#39;t exist on our platform.</p>
 <h2 id='mark-a-lead-converted-beta'>Mark a lead converted (Beta)</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://app.squadiq.in/api/v4/leads/convert/{campaign_id}/"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">"lead_id"</span><span class="p">:</span> <span class="s">"uniqueleadid1"</span><span class="p">,</span>
@@ -937,7 +934,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl -i <span class="s1">'https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/'</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -i <span class="s1">'https://app.squadiq.in/api/v4/leads/convert/{campaign_id}/'</span> <span class="se">\</span>
 -H <span class="s1">'Authorization: Bearer test_token'</span> <span class="se">\</span>
 -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data <span class="s1">'{"lead_id": "uniqueleadid1", "detail": "{conversion_detail}"}'</span>
@@ -966,7 +963,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 </tr>
 </tbody></table>
 
-<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadvoice.co/voice/dashboard/integrations/">SquadVoice Dashboard</a></p>
+<p>You will have to replace <code>{access_token}</code> with access token you get from <a href="https://app.squadiq.in/voice/dashboard/integrations/">SquadIQ Dashboard</a></p>
 <h3 id='request-path-parameters-5'>Request Path Parameters</h3>
 <table><thead>
 <tr>
@@ -1011,7 +1008,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 This defines all the error codes you might encounter in the code
 </aside>
 
-<p>The SquadVoice API uses the following error codes:</p>
+<p>The SquadIQ API uses the following error codes:</p>
 
 <table><thead>
 <tr>
