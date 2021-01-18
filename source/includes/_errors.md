@@ -4,7 +4,7 @@
 This defines all the error codes you might encounter in the code
 </aside>
 
-The SquadVoice API uses the following error codes:
+The SquadIQ API uses the following error codes:
 
 
 Error Code | Meaning

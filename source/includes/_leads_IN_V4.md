@@ -5,7 +5,7 @@
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/create/{campaign_id}/"
+url = "https://app.squadiq.in/api/v4/leads/create/{campaign_id}/"
 payload = [
     {
     "lead_id": "uniqueleadid1",
@@ -32,7 +32,7 @@ response.json()
 ```
 
 ```shell
-curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
+curl 'https://app.squadiq.in/api/v4/leads/create/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'[{"lead_id": 1, "phone_number": "{valid phone number}", \
@@ -41,11 +41,11 @@ curl 'https://app.squadrun.co/api/v4/leads/create/{campaign_id}/' \
 ```
 
 
-Use this API to create new Leads in your SquadVoice Campaign.
+Use this API to create new Leads in your SquadIQ Campaign.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/create/{campaign_id}/`
+`POST https://app.squadiq.in/api/v4/leads/create/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -59,7 +59,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | Content-Type 	| `application/json` 	|
 | Authorization 	| `Bearer {access_token}` 	|
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 
 ### Path Parameters
@@ -102,7 +102,7 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?page_size=1"
+url = "https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/?page_size=1"
 
 headers = {"Authorization": "Bearer test_token"}
 
@@ -118,7 +118,7 @@ response.json()
 curl 
 -H "Authorization: Bearer test_token" 
 -H 'Content-Type: application/json' \
--X GET "https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&page_size=1"
+-X GET "https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/?lead_id=test_lead_id&page_size=1"
 ```
 
 > The above script returns JSON structured like this:
@@ -132,7 +132,7 @@ curl
 		{
 			"phone_number": "+91xxxxxxxxxx",
 			"lead_id": "test_lead_id",
-			"latest_recording_url": "https://www.squadvoice.in/",
+			"latest_recording_url": "https://www.squadiq.in/",
 			"campaign_id": "{campaign_id}",
 			"latest_called_at": "2018-12-03T14:36:38+00:00",
 			"lead_outcome": "Connected : Objective Met",
@@ -149,11 +149,11 @@ curl
 }
 ```
 
-Use this API to get information about a Lead/Leads that has been processed by SquadVoice.
+Use this API to get information about a Lead/Leads that has been processed by SquadIQ.
 
 ### HTTP Request
 
-`GET https://app.squadrun.co/api/v4/leads/responses/{campaign_id}/`
+`GET https://app.squadiq.in/api/v4/leads/responses/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -170,7 +170,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | `Content-Type` 	| `application/json` 	|
 | `Authorization` 	| `Bearer {access_token}` 	|
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 
 ### Request Path Parameters
@@ -218,7 +218,7 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 
 ## Lead Processed Webhook
 
-SquadVoice also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadVoice is done processing the lead. 
+SquadIQ also supports a webhook that is triggered when the lead is processed so that you can get the resonses as soon as SquadIQ is done processing the lead. 
 
 > Payload of webhook is of the following format
 
@@ -227,7 +227,7 @@ SquadVoice also supports a webhook that is triggered when the lead is processed 
 {
     "phone_number": "+91xxxxxxxxxx",
     "lead_id": "test_lead_id",
-    "latest_recording_url": "https://www.squadvoice.in/",
+    "latest_recording_url": "https://www.squadiq.in/",
     "campaign_id": "{campaign_id}",
     "latest_called_at": "2018-12-03T14:36:38+00:00",
     "lead_outcome": "Connected : Objective Met",
@@ -290,7 +290,7 @@ We expect following responses status code for the webhook requests
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/"
+url = "https://app.squadiq.in/api/v4/leads/disable/{campaign_id}/"
 payload = [
     {"lead_id": "uniqueleadid1"},
     {"lead_id": "uniqueleadid2"}
@@ -306,13 +306,13 @@ response.json()
 ```
 
 ```shell
-curl 'https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/' \
+curl 'https://app.squadiq.in/api/v4/leads/disable/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'{"lead_id": 1}'
 ```
 
-Use this API to disable a Lead in your SquadVoice Campaign.
+Use this API to disable a Lead in your SquadIQ Campaign.
 Disabling the lead will stop all reach-outs on it.
 
 ### HTTP Request
@@ -330,7 +330,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | `Content-Type`    | `application/json`    |
 | `Authorization`   | `Bearer {access_token}`   |
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 
 ### Request Path Parameters
@@ -359,7 +359,7 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/"
+url = "https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/"
 
 payload = {
     "lead_id": "uniqueleadid1"
@@ -375,7 +375,7 @@ response.json()
 ```
 
 ```shell
-curl 'https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/' \
+curl 'https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data-binary $'{"lead_id": "uniqueleadid1"}'
@@ -386,7 +386,7 @@ If the lead is in-process, all reach-outs to it would be stopped.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/delete/{campaign_id}/`
+`POST https://app.squadiq.in/api/v4/leads/delete/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -399,7 +399,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | `Content-Type`    | `application/json`    |
 | `Authorization`   | `Bearer {access_token}`   |
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 ### Request Path Parameters
 
@@ -430,7 +430,7 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/update/{campaign_id}/"
+url = "https://app.squadiq.in/api/v4/leads/update/{campaign_id}/"
 
 payload = {
     "lead_id": "uniqueleadid1",
@@ -448,7 +448,7 @@ response.json()
 ```
 
 ```shell
-curl -i -X PATCH 'https://app.squadrun.co/api/v4/leads/update/{campaign_id}/' \
+curl -i -X PATCH 'https://app.squadiq.in/api/v4/leads/update/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data '{"lead_id": "uniqueleadid1", "phone_number": "{valid phone number}", "{custom_field}": "{custom_value}"}'
@@ -459,7 +459,7 @@ You can use this endpoint to update detail of the lead, which has been previousl
 
 ### HTTP Request
 
-`PATCH https://app.squadrun.co/api/v4/leads/update/{campaign_id}/`
+`PATCH https://app.squadiq.in/api/v4/leads/update/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -472,7 +472,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | `Content-Type`    | `application/json`    |
 | `Authorization`   | `Bearer {access_token}`   |
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 ### Request Path Parameters
 
@@ -504,7 +504,7 @@ You will have to replace `{access_token}` with access token you get from [SquadV
 ```python
 import requests
 
-url = "https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/"
+url = "https://app.squadiq.in/api/v4/leads/convert/{campaign_id}/"
 
 payload = {
     "lead_id": "uniqueleadid1",
@@ -521,7 +521,7 @@ response.json()
 ```
 
 ```shell
-curl -i 'https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/' \
+curl -i 'https://app.squadiq.in/api/v4/leads/convert/{campaign_id}/' \
 -H 'Authorization: Bearer test_token' \
 -H 'Content-Type: application/json' \
 --data '{"lead_id": "uniqueleadid1", "detail": "{conversion_detail}"}'
@@ -544,7 +544,7 @@ You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
 | `Content-Type`    | `application/json`    |
 | `Authorization`   | `Bearer {access_token}`   |
 
-You will have to replace `{access_token}` with access token you get from [SquadVoice Dashboard](https://app.squadvoice.co/voice/dashboard/integrations/)
+You will have to replace `{access_token}` with access token you get from [SquadIQ Dashboard](https://app.squadiq.in/voice/dashboard/integrations/)
 
 ### Request Path Parameters
 
