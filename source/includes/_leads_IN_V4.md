@@ -66,7 +66,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 
 ### Request Body Parameters
@@ -177,7 +177,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 ### Request Query Parameters
 
@@ -317,7 +317,7 @@ Disabling the lead will stop all reach-outs on it.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/disable/{campaign_id}/`
+`POST https://app.squadiq.in/api/v4/leads/disable/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -337,7 +337,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 ### Request Body Parameters
 
@@ -405,7 +405,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 ### Request Body Parameters
 
@@ -478,7 +478,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 ### Request Body Parameters
 
@@ -531,7 +531,7 @@ This endpoint can be used to mark a lead as end converted from your side.
 
 ### HTTP Request
 
-`POST https://app.squadrun.co/api/v4/leads/convert/{campaign_id}/`
+`POST https://app.squadiq.in/api/v4/leads/convert/{campaign_id}/`
 
 <aside class="notice">
 You must look into our <a href='#rate-limiting'>Rate Limiting</a> logic as well.
@@ -550,7 +550,7 @@ You will have to replace `{access_token}` with access token you get from [SquadI
 
 | Parameter   | Required  | Description   |
 |-------------  |---------- |------------------------ |
-| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadrun.co`)|
+| `{campaign_id}`   | True  | Unique Identifier of the Campaign (You can get your campaign_id by contacting `voicesales@squadiq.in`)|
 
 ### Request Body Parameters
 
